@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  service-a:
+    build:
+      context: ./service-a
+    ports:
+      - "8080:8080"
+    environment:
+      - OTEL_EXPORTER_ZIPKIN_ENDPOINT=http://zipkin:9411/api/v2/spans
+    depends_on:
+      - service-b
+      - zipkin
+
+  service-b:
+    build:
+      context: ./service-b
+    ports:
+      - "8081:8081"
+    environment:
+      - OTEL_EXPORTER_ZIPKIN_ENDPOINT=http://zipkin:9411/api/v2/spans
+    depends_on:
+      - zipkin
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
