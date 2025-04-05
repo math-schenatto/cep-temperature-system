@@ -20,7 +20,7 @@ Este projeto consiste em dois microsserviços que trabalham em conjunto para:
 
 1. Clone o Repositório:
 ```
-git clone https://github.com/seu-usuario/cep-temperature-system.git
+git clone https://github.com/math-schenatto/cep-temperature-system.git
 cd cep-temperature-system
 ```
 
